@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3.js</title>
+</head>
+<body>
+
+<h1>Test</h1>
+<p>Texted text</p>
+<p>Texted text</p>
+<p>Texted text</p>
+<p>Texted text</p>
+<p>Texted text</p>
+<p>Texted text</p>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+    //Применение аттрибута к выбранному элементу
+    d3.select('h1').style('color', 'green');
+
+    //Применение аттрибута ко всем выбранным элементам
+//    d3.selectAll('p').style('color', 'red');
+    d3.selectAll('p').style('color', function(){
+        return "hsl(" + Math.random() * 360 + ",100%, 50%)";
+    });
+
+    //Использование значений массива
+    //в качестве значений для font-size
+    d3.selectAll('p').
+    data([10,15,8,12,16,6]).
+    style("font-size", function(d){
+        return d + "px";
+    });
+
+
+
+</script>
+
+</body>
+</html>
